@@ -1,35 +1,72 @@
-# FocusBoard 🚀 — O Desafio de IAs (Local vs Nuvem)
+# FocusBoard 🚀
 
----
+O **FocusBoard** é um projeto experimental criado para comparar a capacidade de diferentes modelos de inteligência artificial em uma tarefa completa de desenvolvimento de software.
 
-## 📂 O Projeto: FocusBoard
+Todos os modelos recebem o mesmo briefing, o mesmo conjunto de instruções e o mesmo harness de agentes. A partir disso, cada um deve planejar, implementar, testar e finalizar o projeto de forma autônoma.
 
-O **FocusBoard** é um gerenciador pessoal de tarefas executado localmente no navegador. A aplicação permite organizar fluxos de trabalho em múltiplos projetos, gerenciar tarefas por meio de um quadro Kanban dinâmico e acompanhar estatísticas de produtividade através de um Dashboard integrado.
+## Sobre o projeto
 
-### Requisitos Funcionais Definidos:
+O FocusBoard é um gerenciador local de projetos e tarefas, executado diretamente no navegador.
 
-* **Projetos**: CRUD completo de projetos, permitindo customização de nomes, descrições e cores identificadoras.
-* **Tarefas (Kanban)**: Criação, edição e exclusão de tarefas organizadas por status (*Backlog, A Fazer, Em Andamento, Concluída*) e prioridades (*Baixa, Média, Alta, Urgente*), com suporte a arrastar e soltar (Drag and Drop) persistido de forma determinística no banco.
-* **Dashboard**: Painel dinâmico exibindo a quantidade de projetos ativos, tarefas abertas, concluídas, atrasadas, gráficos de distribuição e alerta de vencimentos próximos.
-* **Interface**: Design limpo, moderno, responsivo, com navegação fluida, acessibilidade básica e suporte a Tema Claro e Tema Escuro persistido no navegador.
+A aplicação permite:
 
----
+- Criar, editar e excluir projetos;
+- Organizar tarefas em um quadro Kanban;
+- Arrastar tarefas entre colunas;
+- Definir prioridade, prazo e tags;
+- Pesquisar e filtrar tarefas;
+- Acompanhar estatísticas em um dashboard;
+- Alternar entre tema claro e escuro;
+- Manter todos os dados salvos localmente.
 
-## 📐 Tecnologias & Arquitetura Definidas
+## Stack definida
 
-Para garantir uma comparação justa, todos os modelos devem seguir a mesma stack tecnológica e a mesma estrutura arquitetural aprovada:
+### Backend
 
-* **Arquitetura**: Monólito Modular estruturado em camadas no Backend (Models, Schemas, Repositories, Services e Rotas) com separação de conceitos.
-* **Backend (API REST em `/api/v1`)**: Python 3.12, FastAPI, SQLAlchemy (ORM), Alembic (Migrations) e validação com Pydantic.
-* **Frontend**: React (Vite), TypeScript, Tailwind CSS, TanStack Query (Estado Remoto) e `dnd-kit` (Kanban).
-* **Banco de Dados**: SQLite (persistido em arquivo local).
-* **Qualidade e Testes**: 
-  * Backend: pytest
-  * Frontend: Vitest e Testing Library
-  * Fluxo Principal (E2E): Playwright
+- Python 3.12
+- FastAPI
+- SQLAlchemy
+- Pydantic
+- Alembic
+- SQLite
+- Pytest
 
----
+### Frontend
 
-## 📝 Licença
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- TanStack Query
+- dnd-kit
+- Vitest
+- Testing Library
 
-Este projeto e seu código de comparação são licenciados sob a **Licença Apache 2.0**.
+## Execução
+
+O projeto foi pensado para rodar nativamente no Windows, sem Docker e sem Electron.
+
+O backend é executado localmente, o frontend abre no navegador e os dados ficam persistidos em um banco SQLite no próprio computador.
+
+## Objetivo do desafio
+
+O objetivo não é apenas verificar qual modelo gera a interface mais bonita, mas avaliar a capacidade de cada um em:
+
+- Interpretar um briefing;
+- Planejar a arquitetura;
+- Integrar frontend, backend e banco de dados;
+- Implementar funcionalidades completas;
+- Criar testes;
+- Corrigir os próprios erros;
+- Manter consistência durante uma tarefa longa;
+- Entregar um projeto realmente executável.
+
+## Harness
+
+O projeto utiliza o **Squad**, um harness de agentes responsável por organizar o trabalho em etapas de planejamento, implementação, revisão, testes e validação.
+
+As instruções completas do desafio ficam no arquivo [`AGENTS.md`](./AGENTS.md).
+
+## Licença
+
+Este projeto está licenciado sob a [Licença Apache 2.0](./LICENSE).

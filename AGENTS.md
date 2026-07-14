@@ -12,7 +12,7 @@ Implemente somente o escopo descrito neste briefing. Não adicione funcionalidad
 
 ## Produto
 
-Crie o **FocusBoard**, um gerenciador pessoal de tarefas executado localmente no navegador.
+Crie o **FocusBoard**, um gerenciador pessoal de tarefas com frontend web executado localmente no navegador. Não empacote a aplicação com Electron ou qualquer runtime desktop.
 
 O sistema deve permitir organizar tarefas em projetos, acompanhar o andamento por quadro Kanban e consultar um resumo de produtividade.
 
@@ -24,11 +24,11 @@ O sistema deve permitir organizar tarefas em projetos, acompanhar o andamento po
 - Estado remoto: TanStack Query.
 - Formulários: React Hook Form com validação por schema.
 - Drag and drop: dnd-kit.
-- Banco: SQLite.
-- Ambiente local: SQLite (persistido em arquivo local).
+- Banco: SQLite, armazenado localmente em arquivo.
+- Ambiente local: execução nativa no Windows, sem Docker ou dependência de contêineres.
 - Testes backend: pytest.
 - Testes frontend: Vitest e Testing Library.
-- Teste de fluxo principal: Playwright.
+- Teste de fluxo principal: teste de integração da API com pytest e banco SQLite isolado.
 - Idioma do código: inglês.
 - Idioma da interface e documentação: português do Brasil.
 - Git: GitHub Flow com Conventional Commits.
@@ -130,9 +130,9 @@ Implemente:
 
 ## Persistência
 
-Modele corretamente projetos e tarefas, incluindo relacionamento, índices relevantes, restrições e exclusão consistente.
+Modele corretamente projetos e tarefas no SQLite, incluindo relacionamentos, foreign keys habilitadas, índices relevantes, restrições e exclusão consistente.
 
-A ordenação do Kanban deve possuir representação persistente e determinística no banco.
+A ordenação do Kanban deve possuir representação persistente e determinística no banco. O arquivo do banco deve ficar em um diretório de dados local ignorado pelo Git, com caminho configurável por variável de ambiente.
 
 Crie uma migration inicial e dados de demonstração por comando explícito de seed.
 
@@ -147,15 +147,15 @@ Crie testes suficientes para validar:
 - movimentação e reordenação no Kanban;
 - dashboard;
 - estados principais da interface;
-- integração do frontend com a API;
-- fluxo completo de criar projeto, criar tarefa, mover tarefa, atualizar a página e confirmar a persistência.
+- integração dos componentes do frontend com o cliente da API usando Vitest e Testing Library;
+- fluxo integrado no backend: criar projeto, criar tarefa, mover a tarefa, abrir uma nova sessão de banco e confirmar a persistência pela API.
 
 Antes de concluir, execute e corrija:
 
-- migrations em banco vazio;
+- migrations em um arquivo SQLite novo e vazio;
 - testes do backend;
 - testes do frontend;
-- teste Playwright principal;
+- teste de integração principal da API com banco SQLite isolado;
 - lint;
 - typecheck;
 - build de produção;
@@ -166,8 +166,8 @@ Antes de concluir, execute e corrija:
 Entregue o projeto funcionando a partir da raiz do repositório, com:
 
 - estrutura de backend e frontend;
-- scripts simples para setup, desenvolvimento, testes e seed compatíveis com Windows;
-- `.env.example` sem segredos;
+- scripts PowerShell simples para setup, desenvolvimento, migrations, testes e seed no Windows;
+- `.env.example` sem segredos, incluindo a configuração do caminho do SQLite;
 - `.gitignore` adequado;
 - README com instalação, execução, testes, migrations, seed, arquitetura e solução de problemas;
 - documentação mantida pelo `squad-docs`;
