@@ -25,7 +25,7 @@ O sistema deve permitir organizar tarefas em projetos, acompanhar o andamento po
 - Formulários: React Hook Form com validação por schema.
 - Drag and drop: dnd-kit.
 - Banco: PostgreSQL.
-- Ambiente local: Docker Compose para o PostgreSQL.
+- Ambiente local: PostgreSQL nativo instalado no Windows.
 - Testes backend: pytest.
 - Testes frontend: Vitest e Testing Library.
 - Teste de fluxo principal: Playwright.
@@ -165,7 +165,6 @@ Antes de concluir, execute e corrija:
 
 Entregue o projeto funcionando a partir da raiz do repositório, com:
 
-- `docker-compose.yml`;
 - estrutura de backend e frontend;
 - scripts simples para setup, desenvolvimento, testes e seed compatíveis com Windows;
 - `.env.example` sem segredos;
