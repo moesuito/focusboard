@@ -22,7 +22,7 @@ Para garantir uma comparação justa, todos os modelos devem seguir a mesma stac
 * **Arquitetura**: Monólito Modular estruturado em camadas no Backend (Models, Schemas, Repositories, Services e Rotas) com separação de conceitos.
 * **Backend (API REST em `/api/v1`)**: Python 3.12, FastAPI, SQLAlchemy (ORM), Alembic (Migrations) e validação com Pydantic.
 * **Frontend**: React (Vite), TypeScript, Tailwind CSS, TanStack Query (Estado Remoto) e `dnd-kit` (Kanban).
-* **Banco de Dados**: PostgreSQL instalado nativamente no Windows.
+* **Banco de Dados**: SQLite (persistido em arquivo local).
 * **Qualidade e Testes**: 
   * Backend: pytest
   * Frontend: Vitest e Testing Library

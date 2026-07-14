@@ -24,8 +24,8 @@ O sistema deve permitir organizar tarefas em projetos, acompanhar o andamento po
 - Estado remoto: TanStack Query.
 - Formulários: React Hook Form com validação por schema.
 - Drag and drop: dnd-kit.
-- Banco: PostgreSQL.
-- Ambiente local: PostgreSQL nativo instalado no Windows.
+- Banco: SQLite.
+- Ambiente local: SQLite (persistido em arquivo local).
 - Testes backend: pytest.
 - Testes frontend: Vitest e Testing Library.
 - Teste de fluxo principal: Playwright.
