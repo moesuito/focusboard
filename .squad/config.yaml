@@ -1,0 +1,10 @@
+projeto: focusboard
+arquitetura: monolito-modular
+backend: python
+frontend: react
+banco: postgres
+git:
+  fluxo: github-flow
+  commits: conventional-commits
+idioma_codigo: en
+idioma_docs: pt-BR
